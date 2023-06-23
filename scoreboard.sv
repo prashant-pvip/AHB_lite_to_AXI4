@@ -21,7 +21,7 @@ axi_seq_item  axi_slave_act_q[$];
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     master_ahb = new("master_ahb", this);
-    axi_port = new("slave_axi", this);
+    slave_axi = new("slave_axi", this);
   endfunction
 
 
@@ -83,8 +83,8 @@ function bit[1:0] ahb_axi_burst (bit[2:0] hburst);
         3'b011: ahb_axi_burst = 1;  //AHB INCR4 burst ====>> INCR 
         3'b100: ahb_axi_burst = 2;  //AHB WRAP8 burst ====>> WRAP 
         3'b101: ahb_axi_burst = 1;  //AHB INCR8 burst ====>> INCR 
-        3'b110: ahb_axi_burst = 2; //AHB WRAP16 burst ====>> WRAP 
-        3'b111: ahb_axi_burst = 1; //AHB INCR16 burst ====>> INCR 
+        3'b110: ahb_axi_burst = 2;  //AHB WRAP16 burst ====>> WRAP 
+        3'b111: ahb_axi_burst = 1;  //AHB INCR16 burst ====>> INCR 
         endcase
 endfunction
 
